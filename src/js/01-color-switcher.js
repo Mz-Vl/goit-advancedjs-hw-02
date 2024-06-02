@@ -3,6 +3,8 @@ const stopBtn = document.querySelector('[data-stop]');
 const body = document.querySelector('body');
 let timerId = null;
 
+stopBtn.disabled = true;
+
 startBtn.addEventListener('click', () => {
   if (startBtn.disabled) {
     return;

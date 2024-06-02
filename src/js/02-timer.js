@@ -36,6 +36,8 @@ const options = {
 
 flatpickr(selectors.input, options);
 
+selectors.startBtn.disabled = true;
+
 selectors.startBtn.addEventListener('click', () => {
   startCountdown();
 });
@@ -43,6 +45,7 @@ selectors.startBtn.addEventListener('click', () => {
 function startCountdown() {
   if (selectedDate && selectedDate > new Date()) {
     selectors.startBtn.disabled = true;
+    selectors.input.disabled = true;
     clearInterval(countdownInterval);
     countdownInterval = setInterval(() => {
       const now = new Date();
@@ -55,6 +58,7 @@ function startCountdown() {
         });
         updateTimerDisplay(0);
         selectors.startBtn.disabled = false;
+        selectors.input.disabled = false;
       } else {
         updateTimerDisplay(timeRemaining);
       }
